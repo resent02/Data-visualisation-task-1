@@ -1,0 +1,537 @@
+[
+  {
+    "Film Title": "Avatar",
+    "Release Year": 2009,
+    "Director(s)": [
+      "James Cameron"
+    ],
+    "Box Office Revenue": "$2,923,706,026",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "Star Wars: The Force Awakens",
+    "Release Year": 2015,
+    "Director(s)": [
+      "J. J. Abrams"
+    ],
+    "Box Office Revenue": "$2,068,223,624",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Ne Zha 2",
+    "Release Year": 2025,
+    "Director(s)": [
+      "Jiaozi"
+    ],
+    "Box Office Revenue": "$1,940,172,560",
+    "Country of Origin": [
+      "China"
+    ]
+  },
+  {
+    "Film Title": "Jurassic World",
+    "Release Year": 2015,
+    "Director(s)": [
+      "Colin Trevorrow"
+    ],
+    "Box Office Revenue": "$1,671,537,444",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "The Lion King",
+    "Release Year": 2019,
+    "Director(s)": [
+      "Jon Favreau"
+    ],
+    "Box Office Revenue": "$1,656,943,394",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Inside Out 2",
+    "Release Year": 2024,
+    "Director(s)": [
+      "Kelsey Mann"
+    ],
+    "Box Office Revenue": "$1,698,863,816",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Avengers: Infinity War",
+    "Release Year": 2018,
+    "Director(s)": [],
+    "Box Office Revenue": "$2,048,359,754",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "The Avengers",
+    "Release Year": 2012,
+    "Director(s)": [
+      "Joss Whedon"
+    ],
+    "Box Office Revenue": "$1,518,815,515",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Titanic",
+    "Release Year": 1997,
+    "Director(s)": [
+      "James Cameron"
+    ],
+    "Box Office Revenue": "T",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Spider-Man: No Way Home",
+    "Release Year": 2021,
+    "Director(s)": [
+      "Jon Watts"
+    ],
+    "Box Office Revenue": "SM",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Despicable Me 3",
+    "Release Year": 2017,
+    "Director(s)": [
+      "Pierre Coffin",
+      "Kyle Balda"
+    ],
+    "Box Office Revenue": "$1,034,800,131",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Avatar: The Way of Water",
+    "Release Year": 2022,
+    "Director(s)": [
+      "James Cameron"
+    ],
+    "Box Office Revenue": "$2,320,250,281",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Jurassic World: Fallen Kingdom",
+    "Release Year": 2018,
+    "Director(s)": [
+      "J. A. Bayona"
+    ],
+    "Box Office Revenue": "$1,308,473,425",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "Star Wars: The Last Jedi",
+    "Release Year": 2017,
+    "Director(s)": [
+      "Rian Johnson"
+    ],
+    "Box Office Revenue": "$1,332,539,889",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Avengers: Endgame",
+    "Release Year": 2019,
+    "Director(s)": [],
+    "Box Office Revenue": "$2,797,501,328",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Jurassic Park",
+    "Release Year": 1993,
+    "Director(s)": [
+      "Steven Spielberg"
+    ],
+    "Box Office Revenue": "$1,037,535,230",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Beauty and the Beast",
+    "Release Year": 2017,
+    "Director(s)": [
+      "Bill Condon"
+    ],
+    "Box Office Revenue": "$1,263,521,126",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Frozen",
+    "Release Year": 2013,
+    "Director(s)": [
+      "Chris Buck",
+      "Jennifer Lee"
+    ],
+    "Box Office Revenue": "F",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Pirates of the Caribbean: On Stranger Tides",
+    "Release Year": 2011,
+    "Director(s)": [
+      "Rob Marshall"
+    ],
+    "Box Office Revenue": "$1,045,713,802",
+    "Country of Origin": [
+      "The Country Bears"
+    ]
+  },
+  {
+    "Film Title": "Moana 2",
+    "Release Year": 2024,
+    "Director(s)": [
+      "David Derrick Jr.",
+      "1",
+      "1",
+      "1"
+    ],
+    "Box Office Revenue": "$1,053,578,188",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Rogue One: A Star Wars Story",
+    "Release Year": 2016,
+    "Director(s)": [
+      "Gareth Edwards"
+    ],
+    "Box Office Revenue": "$1,057,420,387",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Pirates of the Caribbean: Dead Man's Chest",
+    "Release Year": 2006,
+    "Director(s)": [
+      "Gore Verbinski"
+    ],
+    "Box Office Revenue": "$1,066,179,747",
+    "Country of Origin": [
+      "The Country Bears"
+    ]
+  },
+  {
+    "Film Title": "Toy Story 3",
+    "Release Year": 2010,
+    "Director(s)": [
+      "Lee Unkrich"
+    ],
+    "Box Office Revenue": "$1,066,970,811",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Toy Story 4",
+    "Release Year": 2019,
+    "Director(s)": [
+      "Josh Cooley"
+    ],
+    "Box Office Revenue": "$1,073,394,593",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Aladdin",
+    "Release Year": 2019,
+    "Director(s)": [
+      "Guy Ritchie"
+    ],
+    "Box Office Revenue": "$1,050,693,953",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Star Wars: Episode I \u2013 The Phantom Menace",
+    "Release Year": 1999,
+    "Director(s)": [
+      "George Lucas"
+    ],
+    "Box Office Revenue": "$1,046,515,409",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Star Wars: The Rise of Skywalker",
+    "Release Year": 2019,
+    "Director(s)": [
+      "J. J. Abrams"
+    ],
+    "Box Office Revenue": "$1,074,144,248",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Joker",
+    "Release Year": 2019,
+    "Director(s)": [
+      "Todd Phillips"
+    ],
+    "Box Office Revenue": "$1,074,458,282",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Spider-Man: Far From Home",
+    "Release Year": 2019,
+    "Director(s)": [
+      "Jon Watts"
+    ],
+    "Box Office Revenue": "$1,132,679,685",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Transformers: Age of Extinction",
+    "Release Year": 2014,
+    "Director(s)": [
+      "Michael Bay"
+    ],
+    "Box Office Revenue": "$1,104,054,072",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Skyfall",
+    "Release Year": 2012,
+    "Director(s)": [
+      "Sam Mendes"
+    ],
+    "Box Office Revenue": "$1,108,594,137",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "Transformers: Dark of the Moon",
+    "Release Year": 2011,
+    "Director(s)": [
+      "Michael Bay"
+    ],
+    "Box Office Revenue": "$1,123,794,079",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "The Lord of the Rings: The Return of the King",
+    "Release Year": 2003,
+    "Director(s)": [
+      "Peter Jackson"
+    ],
+    "Box Office Revenue": "$1,147,997,407",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "The Dark Knight Rises",
+    "Release Year": 2012,
+    "Director(s)": [
+      "Christopher Nolan"
+    ],
+    "Box Office Revenue": "$1,081,169,825",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "Captain Marvel",
+    "Release Year": 2019,
+    "Director(s)": [
+      "Anna Boden",
+      "Ryan Fleck"
+    ],
+    "Box Office Revenue": "$1,128,274,794",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Aquaman",
+    "Release Year": 2018,
+    "Director(s)": [
+      "James Wan"
+    ],
+    "Box Office Revenue": "$1,148,528,393",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Incredibles 2",
+    "Release Year": 2018,
+    "Director(s)": [
+      "Brad Bird"
+    ],
+    "Box Office Revenue": "$1,242,805,359",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Minions",
+    "Release Year": 2015,
+    "Director(s)": [
+      "Pierre Coffin",
+      "Kyle Balda"
+    ],
+    "Box Office Revenue": "$1,159,444,662",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "The Fate of the Furious",
+    "Release Year": 2017,
+    "Director(s)": [
+      "F. Gary Gray"
+    ],
+    "Box Office Revenue": "F8",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "Harry Potter and the Deathly Hallows \u2013 Part 2",
+    "Release Year": 2011,
+    "Director(s)": [
+      "David Yates"
+    ],
+    "Box Office Revenue": "$1,342,139,727",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "Captain America: Civil War",
+    "Release Year": 2016,
+    "Director(s)": [],
+    "Box Office Revenue": "$1,153,337,496",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Iron Man 3",
+    "Release Year": 2013,
+    "Director(s)": [
+      "Shane Black"
+    ],
+    "Box Office Revenue": "$1,214,811,252",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Deadpool & Wolverine",
+    "Release Year": 2024,
+    "Director(s)": [
+      "Shawn Levy"
+    ],
+    "Box Office Revenue": "$1,338,073,645",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Black Panther",
+    "Release Year": 2018,
+    "Director(s)": [
+      "Ryan Coogler"
+    ],
+    "Box Office Revenue": "$1,347,280,838",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Top Gun: Maverick",
+    "Release Year": 2022,
+    "Director(s)": [
+      "Joseph Kosinski"
+    ],
+    "Box Office Revenue": "$1,495,696,292",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "The Super Mario Bros. Movie",
+    "Release Year": 2023,
+    "Director(s)": [
+      "Aaron Horvath",
+      "Michael Jelenic"
+    ],
+    "Box Office Revenue": "$1,362,566,989",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Furious 7",
+    "Release Year": 2015,
+    "Director(s)": [
+      "James Wan"
+    ],
+    "Box Office Revenue": "$1,515,341,399",
+    "Country of Origin": []
+  },
+  {
+    "Film Title": "Frozen 2",
+    "Release Year": 2019,
+    "Director(s)": [
+      "Chris Buck",
+      "Jennifer Lee"
+    ],
+    "Box Office Revenue": "$1,450,026,933",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Avengers: Age of Ultron",
+    "Release Year": 2015,
+    "Director(s)": [
+      "Joss Whedon"
+    ],
+    "Box Office Revenue": "$1,402,809,540",
+    "Country of Origin": [
+      "United States"
+    ]
+  },
+  {
+    "Film Title": "Barbie",
+    "Release Year": 2023,
+    "Director(s)": [
+      "Greta Gerwig"
+    ],
+    "Box Office Revenue": "$1,447,038,421",
+    "Country of Origin": []
+  }
+]

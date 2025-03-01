@@ -1,3 +1,4 @@
+import json
 import re
 import sqlite3
 
@@ -8,10 +9,28 @@ class WikiFilmSpider(scrapy.Spider):
     name = "wiki_film"
     start_urls = ["https://en.wikipedia.org/wiki/List_of_highest-grossing_films"]
 
+    def __init__(self):
+        self.conn = sqlite3.connect("films.db")
+        self.cursor = self.conn.cursor()
+        self._create_table()
+        super().__init__()
+
+    def _create_table(self):
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS films (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                release_year INTEGER,
+                directors TEXT,
+                box_office TEXT,
+                countries TEXT
+            )
+        """)
+        self.conn.commit()
+
     def parse(self, response):
         for row in response.css("table.wikitable tbody tr"):
             columns = row.css("td, th")
-
             if len(columns) < 5:
                 continue
 
@@ -26,67 +45,64 @@ class WikiFilmSpider(scrapy.Spider):
                     self.parse_film,
                     meta={
                         "title": title,
-                        "release_year": int(release_year),
+                        "release_year": int(release_year.strip())
+                        if release_year
+                        else None,
                         "box_office": box_office.strip(),
                     },
                 )
 
     def parse_film(self, response):
-        title = response.meta["title"]
-        release_year = response.meta["release_year"]
-        box_office = response.meta["box_office"]
+        meta = response.meta
+        title = meta["title"]
 
-        # Extract directors
-        director = response.xpath(
-            "//th[contains(text(), 'Directed by')]/following-sibling::td//a[not(contains(@class, 'mw-redirect'))]/text()"
+        # Director extraction
+        directors = response.xpath(
+            "//th[contains(., 'Directed by')]/following-sibling::td//a[not(@class='mw-redirect')]/text()"
         ).getall()
-        director = [d.strip() for d in director if d.strip()]
+        directors = [d.strip() for d in directors if d.strip()]
 
-        # Extract countries
+        # Country extraction
         country_section = response.xpath(
-            "//th[contains(text(), 'Countries') or contains(text(), 'Country')]/following-sibling::td"
+            "//th[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'country')]/following-sibling::td[1]"
         )
         countries = []
 
-        # First try to get country links
+        # Try linked countries first
         country_links = country_section.xpath(
             ".//a[not(contains(@class, 'mw-redirect'))]/text()"
         ).getall()
         if country_links:
             countries = [link.strip() for link in country_links if link.strip()]
-        else:
-            # If no links, extract plain text and clean
+
+        # Fallback to text processing
+        if not countries:
             country_text = country_section.xpath("string(.)").get()
             if country_text:
-                country_text = re.sub(r"\[\d+\]", "", country_text)
+                country_text = re.sub(r"\[\d+\]|[()]", "", country_text)
                 countries = [
                     c.strip()
-                    for c in re.split(r"[,;]|\band\b", country_text)
+                    for c in re.split(r"\s*[,;]\s*|\s+\b(and|&)\b\s+", country_text)
                     if c.strip()
                 ]
 
-        countries = [c for c in countries if c]
+        countries = list(dict.fromkeys([c for c in countries if c]))
 
-        # Insert into the SQLite database
-        self.add_film_to_db(
-            title,
-            release_year,
-            director[0] if director else None,
-            box_office,
-            countries[0] if countries else None,
-        )
-
-    def add_film_to_db(self, title, release_year, director, box_office, country):
-        conn = sqlite3.connect("films.db")
-        cursor = conn.cursor()
-
-        cursor.execute(
+        # Insert into database
+        self.cursor.execute(
             """
-            INSERT INTO films (title, release_year, director, box_office, country)
+            INSERT INTO films (title, release_year, directors, box_office, countries)
             VALUES (?, ?, ?, ?, ?)
-        """,
-            (title, release_year, director, box_office, country),
+            """,
+            (
+                title,
+                meta["release_year"],
+                json.dumps(directors) if directors else None,
+                meta["box_office"],
+                json.dumps(countries) if countries else None,
+            ),
         )
+        self.conn.commit()
 
-        conn.commit()
-        conn.close()
+    def closed(self, reason):
+        self.conn.close()
