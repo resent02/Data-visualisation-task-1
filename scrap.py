@@ -15,6 +15,7 @@ class WikiFilmSpider(scrapy.Spider):
         self._create_table()
         super().__init__()
 
+    # Initializing Database scheme if not exists
     def _create_table(self):
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS films (
@@ -29,6 +30,7 @@ class WikiFilmSpider(scrapy.Spider):
         self.conn.commit()
 
     def parse(self, response):
+        # accessing to row from the table
         for row in response.css("table.wikitable tbody tr"):
             columns = row.css("td, th")
             if len(columns) < 5:

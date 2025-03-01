@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highest Grossing Films</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background: #f8f9fa;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .controls {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        input, select {
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            flex: 1 1 300px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        th:hover {
+            background-color: var(--secondary-color);
+        }
+
+        th.sort-asc::after {
+            content: '↑';
+            position: absolute;
+            right: 8px;
+        }
+
+        th.sort-desc::after {
+            content: '↓';
+            position: absolute;
+            right: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e9ecef;
+        }
+
+        .box-office {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .country {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: #e8f4f8;
+            border-radius: 15px;
+            margin: 2px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎬 Highest Grossing Films</h1>
+    </header>
+
+    <div class="controls">
+        <input type="text" id="search" placeholder="Search films...">
+        <select id="country-filter">
+            <option value="">All Countries</option>
+        </select>
+    </div>
+
+    <main>
+        <table id="films-table">
+            <thead>
+                <tr>
+                    <th data-sort="title">Film Title</th>
+                    <th data-sort="year">Release Year</th>
+                    <th data-sort="director">Director(s)</th>
+                    <th data-sort="boxoffice">Box Office</th>
+                    <th data-sort="country">Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data loaded dynamically -->
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        let filmData = [];
+        let currentSort = { key: null, direction: 1 };
+
+        async function loadFilmData() {
+            try {
+                const response = await fetch('films.json');
+                filmData = await response.json();
+                initFilters();
+                renderTable(filmData);
+                setupSorting();
+            } catch (error) {
+                console.error("Error loading data:", error);
+            }
+        }
+
+        function initFilters() {
+            const countries = [...new Set(filmData.flatMap(f => f['Country of Origin']))];
+            const countryFilter = document.getElementById('country-filter');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                countryFilter.appendChild(option);
+            });
+
+            document.getElementById('search').addEventListener('input', filterFilms);
+            countryFilter.addEventListener('change', filterFilms);
+        }
+
+        function filterFilms() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const countryFilter = document.getElementById('country-filter').value;
+
+            const filtered = filmData.filter(film => {
+                const matchesSearch = film['Film Title'].toLowerCase().includes(searchTerm) ||
+                    film['Director(s)'].join(' ').toLowerCase().includes(searchTerm);
+                
+                const matchesCountry = !countryFilter || 
+                    film['Country of Origin'].includes(countryFilter);
+                
+                return matchesSearch && matchesCountry;
+            });
+
+            renderTable(filtered);
+        }
+
+        //Rendering table using html selector 
+        function renderTable(data) {
+            const tbody = document.querySelector('#films-table tbody');
+            tbody.innerHTML = '';
+
+            data.forEach(film => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${film['Film Title']}</td>
+                    <td>${film['Release Year']}</td>
+                    <td>${film['Director(s)'].join(', ')}</td>
+                    <td class="box-office">${formatBoxOffice(film['Box Office Revenue'])}</td>
+                    <td>${film['Country of Origin'].map(c => `<span class="country">${c}</span>`).join(' ')}</td>
+                `;
+
+                tbody.appendChild(row);
+            });
+        }
+
+        function formatBoxOffice(amount) {
+            return amount.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function setupSorting() {
+            document.querySelectorAll('th[data-sort]').forEach(header => {
+                header.addEventListener('click', () => {
+                    const sortKey = header.dataset.sort;
+                    if (currentSort.key === sortKey) {
+                        currentSort.direction *= -1;
+                    } else {
+                        currentSort.key = sortKey;
+                        currentSort.direction = 1;
+                    }
+                    
+                    document.querySelectorAll('th').forEach(h => 
+                        h.classList.remove('sort-asc', 'sort-desc')
+                    );
+                    header.classList.add(currentSort.direction === 1 ? 'sort-asc' : 'sort-desc');
+                    
+                    sortFilms(currentSort.key, currentSort.direction);
+                });
+            });
+        }
+
+        function sortFilms(key, direction) {
+            const sorted = [...filmData].sort((a, b) => {
+                let valA = getSortableValue(a, key);
+                let valB = getSortableValue(b, key);
+                
+                if (typeof valA === 'string') valA = valA.toLowerCase();
+                if (typeof valB === 'string') valB = valB.toLowerCase();
+                
+                return valA > valB ? 1 * direction : -1 * direction;
+            });
+            
+            renderTable(sorted);
+        }
+
+        function getSortableValue(film, key) {
+            switch(key) {
+                case 'title': return film['Film Title'];
+                case 'year': return film['Release Year'];
+                case 'director': return film['Director(s)'].join(', ');
+                case 'boxoffice': 
+                    return parseFloat(film['Box Office Revenue'].replace(/[^0-9.]/g, ''));
+                case 'country': return film['Country of Origin'].join(', ');
+                default: return '';
+            }
+        }
+
+        window.onload = loadFilmData;
+    </script>
+</body>
+</html>
